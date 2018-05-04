@@ -1,0 +1,36 @@
+---
+galaxy_info:
+  author: Robert de Bock
+  description: Provides cntlm, a plain-text-to-NTLM-proxy for your system.
+  license: Apache License, Version 2.0
+  min_ansible_version: 2.4
+  min_ansible_container_version: 0.2.0
+
+  platforms:
+    - name: CentOS
+      version:
+        - 6
+        - 7
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      version:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - trusty
+        - xenial
+        - artful
+
+  galaxy_tags:
+    - cntlm
+    - installer
+    - package
+    - CentOS
+    - Debian
+    - RHEL
+    - Ubuntu
+
+dependencies: []
