@@ -1,0 +1,15 @@
+Username {{ cntlm_username }}
+Password {{ cntlm_password }}
+Domain {{ cntlm_domain }}
+Proxy {{ cntlm_proxy }}
+Listen {{ cntlm_listen }}
+{% if cntlm_passlm is defined %}
+PassLM {{ cntlm_passlm }}
+{% endif %}
+{% if cntlm_passnt is defined %}
+PassNT {{ cntlm_passnt }}
+{% endif %}
+{% if cntlm_passntlmv2 is defined %}
+PassNTLMv2 {{ cntlm_passntlmv2 }}
+{% endif %}
+NoProxy {{ cntlm_noproxy }}
