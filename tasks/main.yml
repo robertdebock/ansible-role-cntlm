@@ -1,13 +1,14 @@
 ---
 # tasks file for cntlm
 - name: install software (yum)
-  package:
+  yum:
     name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm-0.92.3-1.x86_64.rpm
+    validate_certs: no
   when:
     - ansible_pkg_mgr == "yum"
 
 - name: install software (apt)
-  package:
+  apt:
     name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm_0.92.3_amd64.deb
   when:
     - ansible_pkg_mgr == "apt"
