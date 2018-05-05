@@ -19,6 +19,8 @@
     url: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm_0.92.3_amd64.deb
     dest: /tmp
     validate_certs: no
+  when:
+    - ansible_pkg_mgr == "apt"
   register: download_software
   until: download_software is succeeded
   retries: 5
