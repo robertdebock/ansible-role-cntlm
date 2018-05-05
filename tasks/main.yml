@@ -7,9 +7,15 @@
   when:
     - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
 
+- name: download software (deb)
+  get_url:
+    src: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm_0.92.3_amd64.deb
+    dest: /tmp
+    validate_certs: no
+
 - name: install software (apt)
-  apt:
-    name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm_0.92.3_amd64.deb
+  package:
+    name: /tmp/cntlm_0.92.3_amd64.deb
   when:
     - ansible_pkg_mgr == "apt"
 
