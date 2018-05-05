@@ -19,17 +19,12 @@
   when:
     - ansible_pkg_mgr == "apt"
 
-# targz contains source, would be quite some extra work to compile instead
-# of install.
-#
-#- name: download software (targz)
-#  unarchive:
-#    src: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm-0.92.3.tar.gz
-#    dest: /tmp
-#    remote_src: yes
-#  when:
-#    - ansible_pkg_mgr != "yum"
-#    - ansible_pkg_mgr != "apt"
+- name: register cntlm to a systemd system
+  template:
+    src: cntlm.service.j2
+    dest: /etc/systemd/system/cntlm.service
+  when:
+  - ansible_service_mgr == "systemd"
 
 - name: configure software
   template:

@@ -1,0 +1,13 @@
+{{ ansible_managed | comment }}
+[Unit]
+Description=cntlm
+After=network.target
+
+[Service]
+Type=forking
+
+ExecStart=/usr/sbin/cntlm -c /etc/cntlm.conf -f {{ cntlm_options | default([] }}
+ExecStop=pkill cntlm
+
+[Install]
+WantedBy=multi-user.target
