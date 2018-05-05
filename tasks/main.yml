@@ -25,6 +25,8 @@
     dest: /etc/systemd/system/cntlm.service
   when:
     - ansible_service_mgr == "systemd"
+  notify:
+    - systemctl daemon-reload
 
 - name: configure software
   template:
