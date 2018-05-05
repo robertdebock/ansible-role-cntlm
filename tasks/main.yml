@@ -31,8 +31,11 @@
     src: cntlm.conf.j2
     dest: /etc/cntlm.conf
 
-- name: start software
+- name: start and enable software
   service:
     name: cntlm
     state: started
     enabled: yes
+  when:
+    - ansible_virtualization_type != "docker"
+
