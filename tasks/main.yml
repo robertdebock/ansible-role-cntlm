@@ -13,6 +13,10 @@
     validate_certs: no
   when:
     - ansible_pkg_mgr == "yum"
+  register: install_software
+  until: install_software is succeeded
+  retries: 5
+  delay: 3
 
 - name: download software (deb)
   get_url:
