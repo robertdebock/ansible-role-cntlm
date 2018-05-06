@@ -2,5 +2,7 @@
 
 ---
 file:
-  /etc/hosts:
+  /usr/sbin/cntlm:
+    exists: true
+  /etc/cntlm.conf
     exists: true
