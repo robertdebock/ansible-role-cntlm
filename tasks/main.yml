@@ -3,7 +3,6 @@
 - name: install software (dnf)
   dnf:
     name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm-0.92.3-1.x86_64.rpm
-    validate_certs: no
   when:
     - ansible_pkg_mgr == "dnf"
 
