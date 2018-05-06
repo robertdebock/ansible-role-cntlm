@@ -20,7 +20,7 @@
 - name: download software (deb)
   get_url:
     url: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}.deb
-    dest: /tmp/cntlm_{{ cntlm_version }}.deb
+    dest: /tmp/cntlm_{{ cntlm_version }}_amd64.deb
     validate_certs: no
   when:
     - ansible_pkg_mgr == "apt"

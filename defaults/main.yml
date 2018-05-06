@@ -2,7 +2,7 @@
 # defaults file for cntlm
 cntlm_version: 0.92.3
 cntlm_release: 1
-cntlm_download_mirror: datapacket.dl.sourceforge.net
+cntlm_download_mirror: netcologne.dl.sourceforge.net
 
 cntlm_username: changeme
 cntlm_password: changeme
