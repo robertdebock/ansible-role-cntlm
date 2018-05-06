@@ -1,6 +1,6 @@
 ---
 # defaults file for cntlm
-cntlm_version: 0.92.3-1
+cntlm_version: 0.92.3
 cntlm_release: 1
 
 cntlm_username: changeme

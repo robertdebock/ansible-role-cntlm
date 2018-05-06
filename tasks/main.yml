@@ -2,13 +2,13 @@
 # tasks file for cntlm
 - name: install software (dnf)
   dnf:
-    name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm-0.92.3-1.x86_64.rpm
+    name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
   when:
     - ansible_pkg_mgr == "dnf"
 
 - name: install software (yum)
   yum:
-    name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm-0.92.3-1.x86_64.rpm
+    name: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
     validate_certs: no
   when:
     - ansible_pkg_mgr == "yum"
@@ -19,8 +19,8 @@
 
 - name: download software (deb)
   get_url:
-    url: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%200.92.3/cntlm_0.92.3_amd64.deb
-    dest: /tmp
+    url: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}.deb
+    dest: /tmp/cntlm_{{ cntlm_version }}.deb
     validate_certs: no
   when:
     - ansible_pkg_mgr == "apt"
@@ -31,7 +31,7 @@
 
 - name: install software (apt)
   apt:
-    name: /tmp/cntlm_0.92.3_amd64.deb
+    name: /tmp/cntlm_{{ cntlm_version }}.deb
   when:
     - ansible_pkg_mgr == "apt"
 
