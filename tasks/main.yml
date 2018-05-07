@@ -19,7 +19,7 @@
 
 - name: download software (deb)
   get_url:
-    url: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}.deb
+    url: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}_amd64.deb
     dest: /tmp/cntlm_{{ cntlm_version }}_amd64.deb
     validate_certs: no
   when:
@@ -31,7 +31,7 @@
 
 - name: install software (apt)
   apt:
-    name: /tmp/cntlm_{{ cntlm_version }}.deb
+    name: /tmp/cntlm_{{ cntlm_version }}_amd64.deb
   when:
     - ansible_pkg_mgr == "apt"
 
