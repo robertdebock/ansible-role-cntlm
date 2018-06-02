@@ -27,7 +27,7 @@ Dependencies
 
 Soft dependencies that prepare your system for cntlm:
 
-- robertdebock.bootstrap
+- [robertdebock.bootstrap](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
 
 Download the dependencies by issuing this command:
 ```
