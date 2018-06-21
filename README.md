@@ -41,20 +41,20 @@ This role has been tested against the following distributions and Ansible versio
 
 |distribution|ansible 2.3|ansible 2.4|ansible 2.5|
 |------------|-----------|-----------|-----------|
-|alpine-3.6|yes|yes|yes|
-|alpine-3.7|yes|yes|yes|
+|alpine-latest|yes|yes|yes|
+|alpine-edge|yes|yes|yes|
 |archlinux|yes|yes|yes|
 |centos-6|yes|yes|yes|
-|centos-7|yes|yes|yes|
-|debian-buster|no|no|no|
-|debian-stretch|yes|yes|yes|
+|centos-latest|yes|yes|yes|
+|debian-stable|no|no|no|
+|debian-latest|yes|yes|yes|
 |debian-wheezy|yes|yes|yes|
-|fedora-27|no|no|no|
-|fedora-28|no|no|no|
-|opensuse-42.2|no|no|no|
-|opensuse-42.3|no|no|no|
+|fedora-latest|no|no|no|
+|fedora-rawhide|no|no|no|
+|opensuse-leap|no|no|no|
+|opensuse-tumbleweed|no|no|no|
 |ubuntu-artful|no|no|no|
-|ubuntu-bionic|no|no|no|
+|ubuntu-latest|no|no|no|
 |ubuntu-trusty|yes|yes|yes|
 |ubuntu-xenial|yes|yes|yes|
 
