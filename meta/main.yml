@@ -29,9 +29,9 @@ galaxy_info:
     - cntlm
     - installer
     - package
-    - CentOS
-    - Debian
-    - RHEL
-    - Ubuntu
+    - centOS
+    - debian
+    - rhel
+    - ubuntu
 
 dependencies: []
