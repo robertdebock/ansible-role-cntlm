@@ -1,6 +1,6 @@
 ---
 # vars file for cntlm
-cntlm_sourceforge_mirror: https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version}}/
+cntlm_sourceforge_mirror: "https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/"
 
-cntlm_rpm: cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
-cntlm_deb: cntlm_{{ cntlm_version }}_amd64.deb
+cntlm_rpm: "cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm"
+cntlm_deb: "cntlm_{{ cntlm_version }}_amd64.deb"
