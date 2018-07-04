@@ -2,7 +2,7 @@
 galaxy_info:
   author: Robert de Bock
   role_name: cntlm
-  description: Cntlm: Fast NTLM Authentication Proxy in C
+  description: Cntlm Fast NTLM Authentication Proxy in C
   license: Apache License, Version 2.0
   min_ansible_version: 2.4
   min_ansible_container_version: 0.2.0
