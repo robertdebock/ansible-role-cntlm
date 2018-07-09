@@ -28,7 +28,7 @@ galaxy_info:
     - cntlm
     - installer
     - package
-    - centOS
+    - centos
     - debian
     - rhel
     - ubuntu
