@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: update-opensuse-leap
+  - name: cntlm-opensuse-leap
     image: opensuse:leap
 provisioner:
   name: ansible

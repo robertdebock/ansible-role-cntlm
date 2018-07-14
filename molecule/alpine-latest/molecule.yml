@@ -8,7 +8,7 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: update-alpine-latest
+  - name: cntlm-alpine-latest
     image: alpine:latest
 provisioner:
   name: ansible
