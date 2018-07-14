@@ -20,7 +20,17 @@ Access to a repository containing packages, likely on the internet.
 Role Variables
 --------------
 
-None known
+cntlm_version: The version of cntlm to install.
+cntlm_release: The release to install.
+cntlm_download_mirror: Where to download cntlm from.
+
+cntlm_username: The username to connect to a corporate proxy.
+cntlm_password: The password to connect to a corporate proxy.
+cntlm_domain: The domain to authenticate with.
+cntlm_proxy: The (existing) corporate proxy to connect to.
+cntlm_listen: The port of that proxy.
+cntlm_passntlmv2: The generated hash.
+cntlm_noproxy: What domains not to proxy to the corporate proxy.
 
 Dependencies
 ------------
