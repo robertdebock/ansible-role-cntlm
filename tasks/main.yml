@@ -4,6 +4,10 @@
   file:
     path: /tmp/cntlm_{{ cntlm_version }}
     state: directory
+  when:
+    - ansible_pkg_mgr != "apt"
+    - ansible_pkg_mgr != "yum"
+    - ansible_pkg_mgr != "dnf"
 
 - name: unpack software
   unarchive:

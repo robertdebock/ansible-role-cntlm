@@ -7,16 +7,16 @@
 - name: configure software
   command: ./configure
   args:
-    chdir: /tmp/cntlm_{{ cntlm_version }}
+    chdir: /tmp/
     creates: /tmp/cntlm/config/config.h
 
 - name: make software
   make:
-    chdir: /tmp/cntlm_{{ cntlm_version }}
+    chdir: /tmp/cntlm-{{ cntlm_version }}
 
 - name: install software
   copy:
-    src: /tmp/cntlm_{{ cntlm_version }}/cntlm
+    src: /tmp/cntlm-{{ cntlm_version }}/cntlm
     dest: /usr/sbin/cntlm
     owner: root
     group: root
