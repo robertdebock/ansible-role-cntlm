@@ -1,5 +1,10 @@
 ---
 # tasks file for cntlm
+- name: ensure unpack directory exists
+  file:
+    path: /tmp/cntlm_{{ cntlm_version }}
+    state: directory
+
 - name: unpack software
   unarchive:
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
@@ -13,24 +18,10 @@
     - ansible_pkg_mgr != "apt"
     - ansible_pkg_mgr != "yum"
     - ansible_pkg_mgr != "dnf"
-
-- name: configure software
-  command: ./configure
-  args:
-    chdir: /tmp/cntlm_{{ cntlm_version }}
-    creates: /tmp/cntlm/config/config.h
-
-- name: make software
-  make:
-    chdir: /tmp/cntlm_{{ cntlm_version }}
-
-- name: install software
-  copy:
-    src: /tmp/cntlm_{{ cntlm_version }}/cntlm
-    dest: /usr/sbin/cntlm
-    owner: root
-    group: root
-    mode: 0755
+  notify:
+    - configure software
+    - make software
+    - install software
 
 - name: install software (dnf)
   dnf:
