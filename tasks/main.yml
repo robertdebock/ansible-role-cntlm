@@ -1,5 +1,11 @@
 ---
 # tasks file for cntlm
+- name: install requirements
+  package:
+    name: "{{ item }}"
+  with_items:
+    - "{{ cntlm_requirements }}"
+
 - name: unpack software
   unarchive:
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
