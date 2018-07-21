@@ -1,18 +1,9 @@
 ---
 # tasks file for cntlm
-- name: ensure unpack directory exists
-  file:
-    path: /tmp/cntlm_{{ cntlm_version }}
-    state: directory
-  when:
-    - ansible_pkg_mgr != "apt"
-    - ansible_pkg_mgr != "yum"
-    - ansible_pkg_mgr != "dnf"
-
 - name: unpack software
   unarchive:
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
-    dest: /tmp/cntlm_{{ cntlm_version }}
+    dest: /tmp
     remote_src: yes
   register: unpack_software
   until: unpack_software is succeeded
