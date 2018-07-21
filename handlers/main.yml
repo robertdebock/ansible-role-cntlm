@@ -3,3 +3,22 @@
 - name: systemctl daemon-reload
   systemd:
     daemon_reload: yes
+
+- name: configure software
+  command: ./configure
+  args:
+    chdir: /tmp/cntlm-{{ cntlm_version }}
+    creates: /tmp/cntlm/config/config.h
+
+- name: make software
+  make:
+    chdir: /tmp/cntlm-{{ cntlm_version }}
+
+- name: install software
+  copy:
+    src: /tmp/cntlm-{{ cntlm_version }}/cntlm
+    dest: /usr/sbin/cntlm
+    owner: root
+    group: root
+    mode: 0755
+    remote_src: yes

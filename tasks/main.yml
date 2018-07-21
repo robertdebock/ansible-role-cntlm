@@ -1,5 +1,29 @@
 ---
 # tasks file for cntlm
+- name: install requirements
+  package:
+    name: "{{ item }}"
+  with_items:
+    - "{{ cntlm_requirements }}"
+
+- name: unpack software
+  unarchive:
+    src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
+    dest: /tmp
+    remote_src: yes
+  register: unpack_software
+  until: unpack_software is succeeded
+  retries: 5
+  delay: 3
+  when:
+    - ansible_pkg_mgr != "apt"
+    - ansible_pkg_mgr != "yum"
+    - ansible_pkg_mgr != "dnf"
+  notify:
+    - configure software
+    - make software
+    - install software
+
 - name: install software (dnf)
   dnf:
     name: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
