@@ -1,0 +1,8 @@
+---
+# vars file for cntlm
+cntlm_sourceforge_mirror: "https://vorboss.dl.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/"
+
+cntlm_archive: "cntlm-{{ cntlm_version }}.tar.gz"
+
+cntlm_requirements:
+  - which
