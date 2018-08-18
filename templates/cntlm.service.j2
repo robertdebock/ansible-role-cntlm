@@ -6,7 +6,7 @@ After=network.target
 [Service]
 Type=forking
 
-ExecStart=/usr/sbin/cntlm -c /etc/cntlm.conf -f {{ cntlm_options | default([] }}
+ExecStart=/usr/sbin/cntlm -c /etc/cntlm.conf -f {{ cntlm_options | default([]) }}
 ExecStop=pkill cntlm
 
 [Install]
