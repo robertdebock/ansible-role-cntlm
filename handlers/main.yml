@@ -3,6 +3,8 @@
 - name: systemctl daemon-reload
   systemd:
     daemon_reload: yes
+  notify:
+    - restart software
 
 - name: configure software
   command: ./configure
@@ -22,3 +24,8 @@
     group: root
     mode: 0755
     remote_src: yes
+
+- name: restart software
+  service:
+    name: cntlm
+    state: restarted
