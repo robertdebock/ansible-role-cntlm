@@ -13,6 +13,7 @@
 - name: install requirements
   package:
     name: "{{ item }}"
+    state: present
   with_items:
     - "{{ cntlm_requirements | default(omit) }}"
 
@@ -37,12 +38,14 @@
 - name: install software (dnf)
   dnf:
     name: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
+    state: present
   when:
     - ansible_pkg_mgr == "dnf"
 
 - name: install software (yum)
   yum:
     name: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
+    state: present
     validate_certs: no
   when:
     - ansible_pkg_mgr == "yum"
@@ -66,6 +69,7 @@
 - name: install software (apt)
   apt:
     deb: /tmp/cntlm_{{ cntlm_version }}_amd64.deb
+    state: present
   when:
     - ansible_pkg_mgr == "apt"
 
