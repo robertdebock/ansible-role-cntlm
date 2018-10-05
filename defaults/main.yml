@@ -11,3 +11,6 @@ cntlm_proxy: changeme.example.com
 cntlm_listen: 3128
 cntlm_passntlmv2: 1234567890abcdef
 cntlm_noproxy: localhost
+
+# To update all packages installed by this roles, set `cntlm_package_state` to `latest`.
+cntlm_package_state: present

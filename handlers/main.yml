@@ -8,17 +8,17 @@
   when:
     - ansible_virtualization_type != "docker"
 
-- name: configure software
+- name: configure cntlm
   command: ./configure
   args:
     chdir: /tmp/cntlm-{{ cntlm_version }}
     creates: /tmp/cntlm/config/config.h
 
-- name: make software
+- name: make cntlm
   make:
     chdir: /tmp/cntlm-{{ cntlm_version }}
 
-- name: install software
+- name: install cntlm
   copy:
     src: /tmp/cntlm-{{ cntlm_version }}/cntlm
     dest: /usr/sbin/cntlm
@@ -27,7 +27,7 @@
     mode: 0755
     remote_src: yes
 
-- name: restart software
+- name: restart cntlm
   service:
     name: cntlm
     state: restarted

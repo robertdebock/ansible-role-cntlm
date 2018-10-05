@@ -1,23 +1,13 @@
 ---
 # tasks file for cntlm
-- name: load default variables
-  include_vars:
-    file: default.yml
-
-- name: load os-specific variables
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_distribution }}.yml"
-    - default.yml
-
 - name: install requirements
   package:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ cntlm_requirements | default(omit) }}"
+    name: "{{ cntlm_stable_packages[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
+          | default (cntlm_stable_packages[ansible_distribution]
+          | default (cntlm_stable_packages['default'] )) }}"
+    state: "{{ cntlm_package_state }}"
 
-- name: unpack software
+- name: unpack cntlm software
   unarchive:
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
     dest: /tmp
@@ -31,18 +21,18 @@
     - ansible_pkg_mgr != "yum"
     - ansible_pkg_mgr != "dnf"
   notify:
-    - configure software
-    - make software
-    - install software
+    - configure cntlm
+    - make cntlm
+    - install cntlm
 
-- name: install software (dnf)
+- name: install cntlm software (dnf)
   dnf:
     name: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
     state: present
   when:
     - ansible_pkg_mgr == "dnf"
 
-- name: install software (yum)
+- name: install cntlm software (yum)
   yum:
     name: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
     state: present
@@ -54,7 +44,7 @@
   retries: 5
   delay: 3
 
-- name: download software (deb)
+- name: download cntlm software (deb)
   get_url:
     url: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}_amd64.deb
     dest: /tmp/cntlm_{{ cntlm_version }}_amd64.deb
@@ -66,7 +56,7 @@
   retries: 5
   delay: 3
 
-- name: install software (apt)
+- name: install cntlm software (apt)
   apt:
     deb: /tmp/cntlm_{{ cntlm_version }}_amd64.deb
     state: present
@@ -82,14 +72,14 @@
   notify:
     - systemctl daemon-reload
 
-- name: configure software
+- name: configure cntlm
   template:
     src: cntlm.conf.j2
     dest: /etc/cntlm.conf
   notify:
-    - restart software
+    - restart cntlm
 
-- name: start and enable software
+- name: start and enable cntlm
   service:
     name: cntlm
     state: started
