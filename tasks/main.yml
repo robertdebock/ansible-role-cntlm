@@ -2,9 +2,7 @@
 # tasks file for cntlm
 - name: install requirements
   package:
-    name: "{{ cntlm_requirements[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
-          | default (cntlm_requirements[ansible_distribution]
-          | default (cntlm_requirements['default'] )) }}"
+    name: "{{ cntlm_requirements[ansible_distribution] | default (omit) }}"
     state: "{{ cntlm_package_state }}"
 
 - name: unpack cntlm software
