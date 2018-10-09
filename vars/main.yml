@@ -5,11 +5,5 @@ cntlm_sourceforge_mirror: "https://vorboss.dl.sourceforge.net/project/cntlm/cntl
 cntlm_archive: "cntlm-{{ cntlm_version }}.tar.gz"
 
 cntlm_requirements:
-  Alpine:
-    - which
-  Archlinux:
-    - which
-  openSUSE Leap:
-    - which
-  openSUSE Tumbleweed:
+  default:
     - which

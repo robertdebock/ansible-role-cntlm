@@ -3,7 +3,7 @@
 - name: install requirements
   package:
     name: "{{ cntlm_requirements[ansible_distribution]
-          | default(omit) }}"
+          | default(cntlm_requirements['default']) }}"
     state: "{{ cntlm_package_state }}"
 
 - name: unpack cntlm software
