@@ -8,4 +8,4 @@ cntlm_requirements:
   default:
     - which
   Debian: []
-  Ubunut: []
+  Ubuntu: []
