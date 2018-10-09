@@ -7,3 +7,5 @@ cntlm_archive: "cntlm-{{ cntlm_version }}.tar.gz"
 cntlm_requirements:
   default:
     - which
+  Debian: []
+  Ubunut: []
