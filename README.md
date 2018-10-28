@@ -5,44 +5,81 @@ cntlm
 
 Provides cntlm for your system.
 
+
+Example Playbook
+----------------
+
+This example is taken from `molecule/default/playbook.yml`:
+```
+---
+- name: Converge
+  hosts: all
+  become: true
+  gather_facts: false
+
+  roles:
+    - role: robertdebock.bootstrap
+    - role: ansible-role-cntlm
+
+```
+
+Role Variables
+--------------
+
+These variables are set in `defaults/main.yml`:
+```
+---
+# defaults file for cntlm
+
+# The version of CNTLM to install.
+cntlm_version: 0.92.3
+
+# What release to install.
+cntlm_release: 1
+
+# Where to download CNTLM from.
+cntlm_download_mirror: netcologne.dl.sourceforge.net
+
+# CNTLM authenticate to the proxy, set a username, password and domain.
+cntlm_username: changeme
+cntlm_password: changeme
+cntlm_domain: example.com
+cntlm_proxy: changeme.example.com
+
+# To what port should CNTLM listen?
+cntlm_listen: 3128
+
+# When you've got a password hash, you may fill it in here.
+cntlm_passntlmv2: 1234567890abcdef
+
+# What hosts to omit in the proxy.
+cntlm_noproxy: localhost
+
+# To update all packages installed by this roles, set `cntlm_package_state` to `latest`.
+cntlm_package_state: present
+
+```
+
+Requirements
+------------
+
+- Access to a repository containing packages, likely on the internet.
+- A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
+
+These roles can be installed to ensure all requirements are met:
+
+- none
+
+To install all requirements at once: `ansible-galaxy install -r requirements.yml`.
+
 Context
 -------
+
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/cntlm.png "Dependency")
 
-Requirements
-------------
-
-Access to a repository containing packages, likely on the internet.
-
-Role Variables
---------------
-
-- cntlm_version: The version of cntlm to install.
-- cntlm_release: The release to install.
-- cntlm_download_mirror: Where to download cntlm from.
-
-- cntlm_username: The username to connect to a corporate proxy.
-- cntlm_password: The password to connect to a corporate proxy.
-- cntlm_domain: The domain to authenticate with.
-- cntlm_proxy: The (existing) corporate proxy to connect to.
-- cntlm_listen: The port of that proxy.
-- cntlm_passntlmv2: The generated hash.
-- cntlm_noproxy: What domains not to proxy to the corporate proxy.
-
-Dependencies
-------------
-
-Soft dependencies that prepare your system for cntlm:
-
-- [robertdebock.bootstrap](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
-
-Download the dependencies by issuing this command:
-```
-ansible-galaxy install --role-file requirements.yml
-```
 
 Compatibility
 -------------
@@ -69,26 +106,26 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
-Example Playbook
-----------------
+Testing
+-------
 
+[Unit tests](https://travis-ci.org/robertdebock/ansible-role-cntlm) are done on every commit and periodically.
+
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-cntlm/issues)
+
+To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
 ```
-- hosts: servers
-  become: yes
-
-  roles:
-    - robertdebock.bootstrap
-    - robertdebock.cntlm
-      cntlm_username: myusername
-      cntlm_password: somestring
+pip install molecule
+molecule test
 ```
+There are many specific scenarios available, please have a look in the `molecule/` directory.
 
-Install this role using `galaxy install robertdebock.cntlm`.
 
 License
 -------
 
-Apache License, Version 2.0
+Apache-2.0
+
 
 Author Information
 ------------------
