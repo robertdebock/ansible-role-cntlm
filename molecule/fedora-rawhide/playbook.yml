@@ -5,5 +5,5 @@
   gather_facts: false
 
   roles:
-    - role: robertdebock.bootstrap
-    - role: ansible-role-cntlm
+    - robertdebock.bootstrap
+    - ansible-role-cntlm
