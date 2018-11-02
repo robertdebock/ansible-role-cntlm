@@ -2,8 +2,7 @@
 # tasks file for cntlm
 - name: install requirements
   package:
-    name: "{{ cntlm_requirements[ansible_distribution]
-          | default(cntlm_requirements['default']) }}"
+    name: "{{ cntlm_requirements }}"
     state: "{{ cntlm_package_state }}"
 
 - name: unpack cntlm software
@@ -26,14 +25,14 @@
 
 - name: install cntlm software (dnf)
   dnf:
-    name: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
+    name: "{{ cntlm_rpm_repository }}"
     state: present
   when:
     - ansible_pkg_mgr == "dnf"
 
 - name: install cntlm software (yum)
   yum:
-    name: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm
+    name: "{{ cntlm_rpm_repository }}"
     state: present
     validate_certs: no
   when:
@@ -45,7 +44,7 @@
 
 - name: download cntlm software (deb)
   get_url:
-    url: https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}_amd64.deb
+    url: "{{ cntlm_dpkg_repository }}"
     dest: /tmp/cntlm_{{ cntlm_version }}_amd64.deb
     validate_certs: no
   when:
