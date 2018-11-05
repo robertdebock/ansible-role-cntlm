@@ -3,8 +3,7 @@ cntlm
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-cntlm.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-cntlm)
 
-Provides cntlm for your system.
-
+The purpose of this role is to install and configure cntlm on your system.
 
 Example Playbook
 ----------------
