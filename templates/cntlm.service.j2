@@ -4,10 +4,9 @@ Description=cntlm
 After=network.target
 
 [Service]
-Type=forking
+Type=simple
 
-ExecStart=/usr/sbin/cntlm -c /etc/cntlm.conf -f {{ cntlm_options | default([]) }}
-ExecStop=pkill cntlm
+ExecStart=/usr/sbin/cntlm -c /etc/cntlm.conf -f
 
 [Install]
 WantedBy=multi-user.target

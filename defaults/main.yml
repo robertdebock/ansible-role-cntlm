@@ -14,7 +14,7 @@ cntlm_download_mirror: netcologne.dl.sourceforge.net
 cntlm_username: changeme
 cntlm_password: changeme
 cntlm_domain: example.com
-cntlm_proxy: changeme.example.com
+cntlm_proxy: changeme.example.com:3128
 
 # To what port should CNTLM listen?
 cntlm_listen: 3128
