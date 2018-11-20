@@ -39,7 +39,7 @@ platforms:
   - name: cntlm-ubuntu-devel
     image: ubuntu:devel
   - name: cntlm-ubuntu-latest
-    image: ubuntu-latest
+    image: ubuntu:latest
 provisioner:
   name: ansible
   lint:
