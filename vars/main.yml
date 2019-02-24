@@ -15,3 +15,8 @@ cntlm_requirements: "{{ _cntlm_requirements[ansible_distribution] | default(_cnt
 cntlm_rpm_repository: "https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm-{{ cntlm_version }}-{{ cntlm_release }}.x86_64.rpm"
 
 cntlm_dpkg_repository: "https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}_amd64.deb"
+
+service_list:
+  - name: cntlm
+    description: Start CNTLM
+    start_command: /usr/sbin/cntlm -c /etc/cntlm.conf -f

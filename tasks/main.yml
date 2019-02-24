@@ -67,14 +67,9 @@
   until: cntlm_install_cntlm_software is succeeded
   retries: 3
 
-- name: register cntlm to a systemd system
-  template:
-    src: cntlm.service.j2
-    dest: /etc/systemd/system/cntlm.service
-  when:
-    - ansible_service_mgr == "systemd"
-  notify:
-    - systemctl daemon-reload
+- name: create artifactory service
+  import_role:
+    name: robertdebock.service
 
 - name: configure cntlm
   template:

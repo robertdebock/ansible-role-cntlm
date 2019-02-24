@@ -6,4 +6,5 @@
 
   roles:
     - robertdebock.bootstrap
+    - robertdebock.buildtools
     - ansible-role-cntlm
