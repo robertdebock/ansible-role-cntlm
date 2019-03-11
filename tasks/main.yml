@@ -3,7 +3,7 @@
 - name: install requirements
   package:
     name: "{{ cntlm_requirements }}"
-    state: "{{ cntlm_package_state }}"
+    state: present
   register: cntlm_install_requirements
   until: cntlm_install_requirements is succeeded
   retries: 3
