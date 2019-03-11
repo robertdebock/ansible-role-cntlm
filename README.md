@@ -20,7 +20,6 @@ This example is taken from `molecule/default/playbook.yml`:
     - robertdebock.bootstrap
     - robertdebock.buildtools
     - robertdebock.cntlm
-
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -59,12 +58,6 @@ cntlm_noproxy: localhost
 
 # To update all packages installed by this roles, set `cntlm_package_state` to `latest`.
 cntlm_package_state: present
-
-# Some Docker containers do not allow managing services, rebooting and writing
-# to some locations in /etc. The role skips tasks that will typically fail in
-# Docker. With this parameter you can tell the role to -not- skip these tasks.
-cntlm_ignore_docker: yes
-
 ```
 
 Requirements
