@@ -6,7 +6,7 @@
   notify:
     - restart software
   when:
-    - ansible_virtualization_type != "docker" or cntlm_ignore_docker
+    - ansible_virtualization_type != "docker"
 
 - name: configure cntlm
   command: ./configure
@@ -32,4 +32,4 @@
     name: cntlm
     state: restarted
   when:
-    - ansible_virtualization_type != "docker" or cntlm_ignore_docker
+    - ansible_virtualization_type != "docker"
