@@ -15,7 +15,8 @@
     creates: /tmp/cntlm/config/config.h
 
 - name: make cntlm
-  make:
+  command: make -j {{ ansible_processor_vcpus * 2 }}
+  args:
     chdir: "/tmp/cntlm-{{ cntlm_version }}"
 
 - name: install cntlm

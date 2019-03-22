@@ -67,7 +67,7 @@
   until: cntlm_install_cntlm_software is succeeded
   retries: 3
 
-- name: create artifactory service
+- name: create cntlm service
   import_role:
     name: robertdebock.service
 
