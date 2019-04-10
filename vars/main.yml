@@ -16,6 +16,8 @@ cntlm_rpm_repository: "https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/c
 
 cntlm_dpkg_repository: "https://{{ cntlm_download_mirror }}/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version }}_amd64.deb"
 
+cntlm_hash_command: "echo {{ cntlm_password }} | /usr/sbin/cntlm -H -u {{ cntlm_username }} -d {{ cntlm_domain }}"
+
 service_list:
   - name: cntlm
     description: Start CNTLM

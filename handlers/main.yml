@@ -28,6 +28,13 @@
     mode: 0755
     remote_src: yes
 
+- name: configure cntlm.conf
+  template:
+    src: cntlm.conf.j2
+    dest: /etc/cntlm.conf
+  notify:
+    - restart cntlm
+
 - name: restart cntlm
   service:
     name: cntlm

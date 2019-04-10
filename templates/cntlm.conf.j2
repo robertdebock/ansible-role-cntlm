@@ -3,5 +3,5 @@ Username {{ cntlm_username }}
 Domain {{ cntlm_domain }}
 Proxy {{ cntlm_proxy }}
 Listen {{ cntlm_listen }}
-PassNTLMv2 {{ generate_hash.results.stdout_lines[2] }}
+PassNTLMv2 {{ generate_hash.stdout_lines[3] }}
 NoProxy {{ cntlm_noproxy }}

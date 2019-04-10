@@ -72,19 +72,13 @@
     name: robertdebock.service
 
 - name: generate hash
-  command: /usr/sbin/cntlm -H -u {{ cntlm_username }} -p {{ cntlm_password }} -d {{ cntlm_domain }} > /etc/cntlm.hash
-  register: generate_hash
-  changed_when: no
-  check_mode: no
+  shell: "set -o pipefail ; {{ cntlm_hash_command }} | tee /etc/cntlm.hash"
   args:
     creates: /etc/cntlm.hash
-
-- name: configure cntlm
-  template:
-    src: cntlm.conf.j2
-    dest: /etc/cntlm.conf
+  register: generate_hash
+  check_mode: no
   notify:
-    - restart cntlm
+    - configure cntlm.conf
 
 - name: start and enable cntlm
   service:
