@@ -75,6 +75,7 @@
   shell: "set -o pipefail ; {{ cntlm_hash_command }} | tee /etc/cntlm.hash"
   args:
     creates: /etc/cntlm.hash
+    executable: /bin/bash
   register: generate_hash
   check_mode: no
   notify:

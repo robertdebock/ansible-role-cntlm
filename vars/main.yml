@@ -7,8 +7,11 @@ cntlm_archive: "cntlm-{{ cntlm_version }}.tar.gz"
 _cntlm_requirements:
   default:
     - which
-  Debian: []
-  Ubuntu: []
+    - bash
+  Debian:
+    - bash
+  Ubuntu:
+    - bash
 
 cntlm_requirements: "{{ _cntlm_requirements[ansible_distribution] | default(_cntlm_requirements['default']) }}"
 
