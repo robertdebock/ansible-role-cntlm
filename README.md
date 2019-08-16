@@ -117,6 +117,11 @@ This role has been tested against the following distributions and Ansible versio
 
 A single star means the build may fail, it's marked as an experimental build.
 
+Upstream version(s)
+-------------------
+
+This project [refers to a version](https://github.com/robertdebock/ansible-role-cntlm/blob/master/defaults/main.yml) related to the [upstream project](https://sourceforge.net/projects/cntlm/files/).
+
 Testing
 -------
 
