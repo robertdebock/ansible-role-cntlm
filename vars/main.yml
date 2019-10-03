@@ -10,6 +10,11 @@ _cntlm_requirements:
     - bash
   Debian:
     - bash
+  Suse:
+    - which
+    - bash
+    - tar
+    - gzip
 
 cntlm_requirements: "{{ _cntlm_requirements[ansible_os_family] | default(_cntlm_requirements['default']) }}"
 
