@@ -24,9 +24,6 @@ galaxy_info:
     - name: Fedora
       versions:
         - all
-    - name: OpenSUSE
-      versions:
-        - all
     - name: Ubuntu
       versions:
         - trusty
@@ -36,9 +33,5 @@ galaxy_info:
     - cntlm
     - installer
     - package
-    - centos
-    - debian
-    - rhel
-    - ubuntu
 
 dependencies: []
