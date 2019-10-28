@@ -33,5 +33,6 @@ galaxy_info:
     - cntlm
     - installer
     - package
+    - centos
 
 dependencies: []
