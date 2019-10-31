@@ -5,8 +5,6 @@
     daemon_reload: yes
   notify:
     - restart software
-  when:
-    - ansible_virtualization_type != "docker"
 
 - name: configure cntlm
   command: ./configure
@@ -39,5 +37,3 @@
   service:
     name: cntlm
     state: restarted
-  when:
-    - ansible_virtualization_type != "docker"
