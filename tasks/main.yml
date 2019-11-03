@@ -11,7 +11,7 @@
 - name: unpack cntlm software
   unarchive:
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
-    dest: /tmp
+    dest: "{{ cntlm_tmp }}"
     remote_src: yes
   register: cntlm_unpack_cntlm_software
   until: cntlm_unpack_cntlm_software is succeeded
@@ -49,7 +49,7 @@
 - name: download cntlm software (deb)
   get_url:
     url: "{{ cntlm_dpkg_repository }}"
-    dest: "/tmp/cntlm_{{ cntlm_version }}_amd64.deb"
+    dest: "{{ cargo_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
     validate_certs: no
   when:
     - ansible_pkg_mgr == "apt"
@@ -59,7 +59,7 @@
 
 - name: install cntlm software (apt)
   apt:
-    deb: "/tmp/cntlm_{{ cntlm_version }}_amd64.deb"
+    deb: "{{ cargo_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
     state: present
   when:
     - ansible_pkg_mgr == "apt"

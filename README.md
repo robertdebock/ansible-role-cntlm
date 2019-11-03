@@ -70,6 +70,9 @@ cntlm_passntlmv2: 1234567890abcdef
 
 # What hosts to omit in the proxy.
 cntlm_noproxy: localhost
+
+# Where to install temporary files
+cntlm_tmp: /root
 ```
 
 Requirements
