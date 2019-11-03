@@ -28,3 +28,4 @@ service_list:
   - name: cntlm
     description: Start CNTLM
     start_command: /usr/sbin/cntlm -c /etc/cntlm.conf -f
+    status_pattern: cntlm

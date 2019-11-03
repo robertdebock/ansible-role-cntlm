@@ -107,8 +107,6 @@ This role has been tested on these [container images](https://hub.docker.com/):
 
 |container|tag|allow_failures|
 |---------|---|--------------|
-|alpine|latest|no|
-|alpine|edge|yes|
 |debian|stable|yes|
 |debian|unstable|yes|
 |debian|latest|no|
@@ -136,6 +134,7 @@ Some variarations of the build matrix do not work. These are the variations and 
 | variation                 | reason                 |
 |---------------------------|------------------------|
 | EL | No package matching 'bison' found available, installed or updated |
+| Alpine | Cannot make the task 'start and enable cntlm' idempotent. |
 
 Included version(s)
 -------------------

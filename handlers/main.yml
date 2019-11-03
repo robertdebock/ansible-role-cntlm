@@ -9,17 +9,17 @@
 - name: configure cntlm
   command: ./configure
   args:
-    chdir: "/tmp/cntlm-{{ cntlm_version }}"
-    creates: /tmp/cntlm/config/config.h
+    chdir: "{{ cntlm_tmp }}/cntlm-{{ cntlm_version }}"
+    creates: "{{ cntlm_tmp }}/cntlm/config/config.h"
 
 - name: make cntlm
   command: make -j {{ ansible_processor_vcpus * 2 }}
   args:
-    chdir: "/tmp/cntlm-{{ cntlm_version }}"
+    chdir: "{{ cntlm_tmp }}/cntlm-{{ cntlm_version }}"
 
 - name: install cntlm
   copy:
-    src: "/tmp/cntlm-{{ cntlm_version }}/cntlm"
+    src: "{{ cntlm_tmp }}/cntlm-{{ cntlm_version }}/cntlm"
     dest: /usr/sbin/cntlm
     owner: root
     group: root
