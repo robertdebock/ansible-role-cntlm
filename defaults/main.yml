@@ -38,4 +38,4 @@ cntlm_denies:
   - 0/0
 
 # If yes, access to CNTLM is possible from outside of the local host, subject to cntlm_allows and cntlm_denies:
-gateway_enabled: no
+gateway_enabled: "no"
