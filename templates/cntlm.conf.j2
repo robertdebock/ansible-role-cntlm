@@ -5,3 +5,17 @@ Proxy {{ cntlm_proxy }}
 Listen {{ cntlm_listen }}
 {{ generate_hash.stdout_lines[3] }}
 NoProxy {{ cntlm_noproxy }}
+
+# Enable to allow access from other computers
+#
+Gateway {{ gateway_enabled }}
+
+# Useful in Gateway mode to allow/restrict certain IPs
+# Specifiy individual IPs or subnets one rule per line.
+#
+{% for allow in cntlm_allows %}
+    Allow {{ allow }}
+{% endfor %}
+{% for deny in cntlm_denies %}
+    Deny   {{ deny }}
+{% endfor %}

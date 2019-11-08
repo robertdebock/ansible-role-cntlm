@@ -70,6 +70,18 @@ cntlm_noproxy: localhost
 
 # Where to install temporary files
 cntlm_tmp: /root
+
+# Which IPs or CIDR subnets CNTLM is accessible from.  Items other than 127.0.0.1 are only effective if gateway_enabled
+# is yes
+cntlm_allows:
+  - 127.0.0.1
+
+# By default ("0/0"), CNTLM is inaccessible from all other IP addresses.
+cntlm_denies:
+  - 0/0
+
+# If yes, access to CNTLM is possible from outside of the local host, subject to cntlm_allows and cntlm_denies:
+gateway_enabled: "no"
 ```
 
 Requirements
