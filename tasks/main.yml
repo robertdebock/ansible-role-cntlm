@@ -76,6 +76,7 @@
   args:
     creates: /etc/cntlm.hash
     executable: /bin/bash
+  register: cntlm_generate_hash
   check_mode: no
   notify:
     - configure cntlm.conf
