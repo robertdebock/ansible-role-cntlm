@@ -25,23 +25,23 @@
     - make cntlm
     - install cntlm
 
-- name: install cntlm software (dnf)
-  dnf:
-    name: "{{ cntlm_rpm_repository }}"
+- name: install cntlm software
+  package:
+    name: cntlm
     state: present
   when:
-    - ansible_pkg_mgr == "dnf"
+    - ansible_pkg_mgr == "yum"
   register: cntlm_install_cntlm_software_dnf
   until: cntlm_install_cntlm_software_dnf is succeeded
   retries: 3
 
-- name: install cntlm software (yum)
-  yum:
+- name: install cntlm software (dnf)
+  dnf:
     name: "{{ cntlm_rpm_repository }}"
     state: present
     validate_certs: no
   when:
-    - ansible_pkg_mgr == "yum"
+    - ansible_pkg_mgr == "dnf"
   register: cntlm_install_cntlm_software_yum
   until: cntlm_install_cntlm_software_yum is succeeded
   retries: 3

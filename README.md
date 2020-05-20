@@ -31,6 +31,7 @@ The machine may need to be prepared using `molecule/resources/prepare.yml`:
   roles:
     - role: robertdebock.bootstrap
     - role: robertdebock.buildtools
+    - role: robertdebock.epel
 ```
 
 For verification `molecule/resources/verify.yml` run after the role has been applied.
@@ -106,6 +107,7 @@ The following roles can be installed to ensure all requirements are met, using `
 ---
 - robertdebock.bootstrap
 - robertdebock.buildtools
+- robertdebock.epel
 - robertdebock.service
 
 ```
