@@ -19,8 +19,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+        with:
+          path: "${{ github.repository }}"
       - name: molecule
         uses: robertdebock/molecule-action@2.3.3
+        with:
+          path: "${{ github.repository }}"
         with:
           command: syntax
   lint:
