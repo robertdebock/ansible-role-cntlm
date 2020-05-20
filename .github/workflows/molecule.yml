@@ -14,17 +14,6 @@ on:
     - cron: '3 3 3 * *'
 
 jobs:
-  syntax:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          path: "${{ github.repository }}"
-      - name: molecule
-        uses: robertdebock/molecule-action@2.3.3
-        with:
-          command: syntax
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -39,7 +28,6 @@ jobs:
   test:
     needs:
       - lint
-      - syntax
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
