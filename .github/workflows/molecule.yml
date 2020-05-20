@@ -14,19 +14,28 @@ on:
     - cron: '3 3 3 * *'
 
 jobs:
+  syntax:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: molecule
+        uses: robertdebock/molecule-action@2.3.0
+        with:
+          command: syntax
   lint:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
       - name: molecule
-        uses: robertdebock/molecule-action@2.2.0
+        uses: robertdebock/molecule-action@2.3.0
         with:
-          entrypoint: /usr/local/bin/molecule
-          args: lint
+          command: lint
   test:
     needs:
       - lint
+      - syntax
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -62,7 +71,7 @@ jobs:
       - name: parse apparmor for mysql
         run: sudo apparmor_parser -R /etc/apparmor.d/usr.sbin.mysqld
       - name: molecule
-        uses: robertdebock/molecule-action@2.2.0
+        uses: robertdebock/molecule-action@2.3.0
         with:
           image: ${{ matrix.config.image }}
           tag: ${{ matrix.config.tag }}
