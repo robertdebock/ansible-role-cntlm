@@ -7,18 +7,12 @@
   package:
     name: "{{ cntlm_requirements }}"
     state: present
-  register: cntlm_install_requirements
-  until: cntlm_install_requirements is succeeded
-  retries: 3
 
 - name: unpack cntlm software
   unarchive:
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
     dest: "{{ cntlm_tmp }}"
     remote_src: yes
-  register: cntlm_unpack_cntlm_software
-  until: cntlm_unpack_cntlm_software is succeeded
-  retries: 3
   when:
     - ansible_pkg_mgr != "apt"
     - ansible_pkg_mgr != "yum"
@@ -34,9 +28,6 @@
     state: present
   when:
     - ansible_pkg_mgr == "yum"
-  register: cntlm_install_cntlm_software_dnf
-  until: cntlm_install_cntlm_software_dnf is succeeded
-  retries: 3
 
 - name: install cntlm software (dnf)
   dnf:
@@ -45,9 +36,6 @@
     validate_certs: no
   when:
     - ansible_pkg_mgr == "dnf"
-  register: cntlm_install_cntlm_software_yum
-  until: cntlm_install_cntlm_software_yum is succeeded
-  retries: 3
 
 - name: download cntlm software (deb)
   get_url:
@@ -56,9 +44,6 @@
     validate_certs: no
   when:
     - ansible_pkg_mgr == "apt"
-  register: cntlm_download_cntlm_software_deb
-  until: cntlm_download_cntlm_software_deb is succeeded
-  retries: 3
 
 - name: install cntlm software (apt)
   apt:
@@ -66,9 +51,6 @@
     state: present
   when:
     - ansible_pkg_mgr == "apt"
-  register: cntlm_install_cntlm_software
-  until: cntlm_install_cntlm_software is succeeded
-  retries: 3
 
 - name: create cntlm service
   import_role:
