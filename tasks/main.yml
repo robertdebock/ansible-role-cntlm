@@ -13,7 +13,7 @@
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
     dest: "{{ cntlm_tmp }}"
     remote_src: yes
-    mode: "0644"
+    mode: "0755"
   when:
     - ansible_pkg_mgr != "apt"
     - ansible_pkg_mgr != "yum"
