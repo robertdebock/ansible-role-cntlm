@@ -27,6 +27,7 @@
   package:
     name: cntlm
     state: present
+    disable_gpg_check: yes
   when:
     - ansible_pkg_mgr == "yum"
 
@@ -35,6 +36,7 @@
     name: "{{ cntlm_rpm_repository }}"
     state: present
     validate_certs: no
+    disable_gpg_check: yes
   when:
     - ansible_pkg_mgr == "dnf"
 

@@ -2,8 +2,8 @@
 - name: Verify
   hosts: all
   become: yes
-  gather_facts: yes
+  gather_facts: no
 
   tasks:
-    - name: check if connection still works
-      ping:
+    - name: Try to use cntlm
+      shell: echo "some_string" | cntlm -H
