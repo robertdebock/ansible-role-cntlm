@@ -1,7 +1,7 @@
 ---
 # vars file for cntlm
 
-cntlm_sourceforge_mirror: "https://sourceforge.mirrorservice.org/c/cn/cntlm/cntlm/cntlm%20{{ cntlm_version }}/"
+cntlm_sourceforge_mirror: "https://kumisystems.dl.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/"
 
 cntlm_archive: "cntlm-{{ cntlm_version }}.tar.gz"
 
