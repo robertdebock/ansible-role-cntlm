@@ -31,8 +31,8 @@ galaxy_info:
 
   galaxy_tags:
     - cntlm
+    - proxy
     - installer
     - package
-    - centos
 
 dependencies: []
