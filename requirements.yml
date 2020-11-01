@@ -1,5 +1,6 @@
 ---
-- robertdebock.bootstrap
-- robertdebock.buildtools
-- robertdebock.epel
-- robertdebock.service
+roles:
+  - name: robertdebock.bootstrap
+  - name: robertdebock.buildtools
+  - name: robertdebock.epel
+  - name: robertdebock.service
