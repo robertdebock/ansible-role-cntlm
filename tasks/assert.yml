@@ -100,5 +100,5 @@
     that:
       - gateway_enabled is defined
       - gateway_enabled | length > 0
-      - gateway_enabled in ["yes", "no"]
+      - gateway_enabled in [ "yes", "no" ]
     quiet: yes
