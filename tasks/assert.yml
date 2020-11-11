@@ -10,6 +10,7 @@
   assert:
     that:
       - cntlm_release is defined
+      - cntlm_release is number
       - cntlm_release | int
       - cntlm_release | int > 0
     quiet: yes
@@ -53,6 +54,7 @@
   assert:
     that:
       - cntlm_listen is defined
+      - cntlm_listen is number
       - cntlm_listen | int > 0
       - cntlm_listen | int < 65536
     quiet: yes
