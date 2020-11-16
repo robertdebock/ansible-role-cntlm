@@ -10,8 +10,8 @@
     that:
       - cntlm_release is defined
       - cntlm_release is number
-      - cntlm_release | int
-      - cntlm_release | int > 0
+      - cntlm_release
+      - cntlm_release > 0
     quiet: yes
 
 - name: test if cntlm_download_mirror is set correctly
@@ -49,8 +49,8 @@
     that:
       - cntlm_listen is defined
       - cntlm_listen is number
-      - cntlm_listen | int > 0
-      - cntlm_listen | int < 65536
+      - cntlm_listen > 0
+      - cntlm_listen < 65536
     quiet: yes
 
 - name: test if cntlm_passntlmv2 is set correctly
