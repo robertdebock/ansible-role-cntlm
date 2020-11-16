@@ -53,13 +53,6 @@
       - cntlm_listen < 65536
     quiet: yes
 
-- name: test if cntlm_passntlmv2 is set correctly
-  assert:
-    that:
-    quiet: yes
-  when:
-    - cntlm_passntlmv2 is defined
-
 - name: test if cntlm_noproxy is set correctly
   assert:
     that:
