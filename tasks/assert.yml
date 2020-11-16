@@ -3,7 +3,6 @@
   assert:
     that:
       - cntlm_version is defined
-      - cntlm_version | length > 0
     quiet: yes
 
 - name: test if cntlm_release is set correctly
@@ -19,35 +18,30 @@
   assert:
     that:
       - cntlm_download_mirror is defined
-      - cntlm_download_mirror | length > 0
     quiet: yes
 
 - name: test if cntlm_username is set correctly
   assert:
     that:
       - cntlm_username is defined
-      - cntlm_username | length > 0
     quiet: yes
 
 - name: test if cntlm_password is set correctly
   assert:
     that:
       - cntlm_password is defined
-      - cntlm_password | length > 0
     quiet: yes
 
 - name: test if cntlm_domain is set correctly
   assert:
     that:
       - cntlm_domain is defined
-      - cntlm_domain | length > 0
     quiet: yes
 
 - name: test if cntlm_proxy is set correctly
   assert:
     that:
       - cntlm_proxy is defined
-      - cntlm_proxy | length > 0
     quiet: yes
 
 - name: test if cntlm_listen is set correctly
@@ -62,7 +56,6 @@
 - name: test if cntlm_passntlmv2 is set correctly
   assert:
     that:
-      - cntlm_passntlmv2 | length > 0
     quiet: yes
   when:
     - cntlm_passntlmv2 is defined
@@ -71,21 +64,18 @@
   assert:
     that:
       - cntlm_noproxy is defined
-      - cntlm_noproxy | length > 0
     quiet: yes
 
 - name: test if cntlm_tmp is set correctly
   assert:
     that:
       - cntlm_tmp is defined
-      - cntlm_tmp | length > 0
     quiet: yes
 
 - name: test if cntlm_allows is set correctly
   assert:
     that:
       - cntlm_allows is defined
-      - cntlm_allows | length > 0
       - cntlm_allows is iterable
     quiet: yes
 
@@ -93,7 +83,6 @@
   assert:
     that:
       - cntlm_denies is defined
-      - cntlm_denies | length > 0
       - cntlm_denies is iterable
     quiet: yes
 
@@ -101,6 +90,5 @@
   assert:
     that:
       - gateway_enabled is defined
-      - gateway_enabled | length > 0
       - gateway_enabled in [ "yes", "no" ]
     quiet: yes
