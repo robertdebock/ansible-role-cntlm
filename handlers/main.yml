@@ -1,5 +1,6 @@
 ---
 # handlers file for cntlm
+
 - name: systemctl daemon-reload
   systemd:
     daemon_reload: yes
