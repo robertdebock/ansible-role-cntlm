@@ -1,4 +1,5 @@
 ---
+
 - name: test if cntlm_version is set correctly
   assert:
     that:
