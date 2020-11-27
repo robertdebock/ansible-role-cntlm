@@ -4,6 +4,7 @@
   assert:
     that:
       - cntlm_version is defined
+      - cntlm_version is string
     quiet: yes
 
 - name: test if cntlm_release is set correctly
@@ -19,30 +20,35 @@
   assert:
     that:
       - cntlm_download_mirror is defined
+      - cntlm_download_mirror is string
     quiet: yes
 
 - name: test if cntlm_username is set correctly
   assert:
     that:
       - cntlm_username is defined
+      - cntlm_username is string
     quiet: yes
 
 - name: test if cntlm_password is set correctly
   assert:
     that:
       - cntlm_password is defined
+      - cntlm_password is string
     quiet: yes
 
 - name: test if cntlm_domain is set correctly
   assert:
     that:
       - cntlm_domain is defined
+      - cntlm_domain is string
     quiet: yes
 
 - name: test if cntlm_proxy is set correctly
   assert:
     that:
       - cntlm_proxy is defined
+      - cntlm_proxy is string
     quiet: yes
 
 - name: test if cntlm_listen is set correctly
@@ -58,12 +64,14 @@
   assert:
     that:
       - cntlm_noproxy is defined
+      - cntlm_noproxy is string
     quiet: yes
 
 - name: test if cntlm_tmp is set correctly
   assert:
     that:
       - cntlm_tmp is defined
+      - cntlm_tmp is string
     quiet: yes
 
 - name: test if cntlm_allows is set correctly
@@ -84,5 +92,6 @@
   assert:
     that:
       - gateway_enabled is defined
+      - gateway_enabled is string
       - gateway_enabled in [ "yes", "no" ]
     quiet: yes
