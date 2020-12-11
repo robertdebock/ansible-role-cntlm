@@ -17,9 +17,7 @@
     remote_src: yes
     mode: "0755"
   when:
-    - ansible_pkg_mgr != "apt"
-    - ansible_pkg_mgr != "yum"
-    - ansible_pkg_mgr != "dnf"
+    - ansible_pkg_mgr not in [ "apt", "yum", "dnf" ]
   notify:
     - configure cntlm
     - make cntlm
@@ -31,7 +29,7 @@
     state: present
     disable_gpg_check: yes
   when:
-    - ansible_pkg_mgr == "yum"
+    - ansible_pkg_mgr in [ "yum" ]
 
 - name: install cntlm software (dnf)
   dnf:
@@ -40,22 +38,22 @@
     validate_certs: no
     disable_gpg_check: yes
   when:
-    - ansible_pkg_mgr == "dnf"
+    - ansible_pkg_mgr [ "dnf" ]
 
-- name: download cntlm software (deb)
-  get_url:
-    url: "{{ cntlm_dpkg_repository }}"
-    dest: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
-    validate_certs: no
-  when:
-    - ansible_pkg_mgr == "apt"
+- name: manage apt details
+  block:
+    - name: download cntlm software (deb)
+      get_url:
+        url: "{{ cntlm_dpkg_repository }}"
+        dest: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
+        validate_certs: no
 
-- name: install cntlm software (apt)
-  apt:
-    deb: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
-    state: present
+    - name: install cntlm software (apt)
+      apt:
+        deb: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
+        state: present
   when:
-    - ansible_pkg_mgr == "apt"
+    - ansible_pkg_mgr in [ "apt" ]
 
 - name: create cntlm service
   import_role:
