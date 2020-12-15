@@ -38,7 +38,7 @@
     validate_certs: no
     disable_gpg_check: yes
   when:
-    - ansible_pkg_mgr [ "dnf" ]
+    - ansible_pkg_mgr in [ "dnf" ]
 
 - name: manage apt details
   block:
