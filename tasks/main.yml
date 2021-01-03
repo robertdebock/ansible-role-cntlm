@@ -68,6 +68,8 @@
   check_mode: no
   notify:
     - configure cntlm.conf
+  when:
+    - cntlm_passntlmv2 is not defined
 
 - name: start and enable cntlm
   service:
