@@ -58,6 +58,13 @@
 - name: create cntlm service
   import_role:
     name: robertdebock.service
+  vars:
+    service_list:
+      - name: cntlm
+        description: Start CNTLM
+        start_command: /usr/sbin/cntlm -c /etc/cntlm.conf -f
+        status_pattern: cntlm
+
 
 - name: generate hash
   shell: "set -o pipefail ; {{ cntlm_hash_command }} | tee /etc/cntlm.hash"
