@@ -7,12 +7,12 @@
   delegate_to: localhost
 
 - name: install requirements
-  package:
+  ansible.builtin.package:
     name: "{{ cntlm_requirements }}"
     state: present
 
 - name: unpack cntlm software
-  unarchive:
+  ansible.builtin.unarchive:
     src: "{{ cntlm_sourceforge_mirror }}/{{ cntlm_archive }}"
     dest: "{{ cntlm_tmp }}"
     remote_src: yes
@@ -25,7 +25,7 @@
     - install cntlm
 
 - name: install cntlm software
-  package:
+  ansible.builtin.package:
     name: cntlm
     state: present
     disable_gpg_check: yes
@@ -33,7 +33,7 @@
     - ansible_pkg_mgr in [ "yum" ]
 
 - name: install cntlm software (dnf)
-  dnf:
+  ansible.builtin.dnf:
     name: "{{ cntlm_rpm_repository }}"
     state: present
     validate_certs: no
@@ -57,7 +57,7 @@
     - ansible_pkg_mgr in [ "apt" ]
 
 - name: create cntlm service
-  import_role:
+  ansible.builtin.import_role:
     name: robertdebock.service
   vars:
     service_list:
@@ -68,7 +68,7 @@
 
 
 - name: generate hash
-  shell: "set -o pipefail ; {{ cntlm_hash_command }} | tee /etc/cntlm.hash"
+  ansible.builtin.shell: "set -o pipefail ; {{ cntlm_hash_command }} | tee /etc/cntlm.hash"
   args:
     creates: /etc/cntlm.hash
     executable: /bin/bash
@@ -80,7 +80,7 @@
     - cntlm_passntlmv2 is not defined
 
 - name: start and enable cntlm
-  service:
+  ansible.builtin.service:
     name: cntlm
     state: started
     enabled: yes

@@ -2,7 +2,7 @@
 # handlers file for cntlm
 
 - name: systemctl daemon-reload
-  systemd:
+  ansible.builtin.systemd:
     daemon_reload: yes
   notify:
     - restart software
@@ -19,7 +19,7 @@
     chdir: "{{ cntlm_tmp }}/cntlm-{{ cntlm_version }}"
 
 - name: install cntlm
-  copy:
+  ansible.builtin.copy:
     src: "{{ cntlm_tmp }}/cntlm-{{ cntlm_version }}/cntlm"
     dest: /usr/sbin/cntlm
     owner: root
@@ -28,7 +28,7 @@
     remote_src: yes
 
 - name: configure cntlm.conf
-  template:
+  ansible.builtin.template:
     src: cntlm.conf.j2
     dest: /etc/cntlm.conf
     mode: "0640"
@@ -36,6 +36,6 @@
     - restart cntlm
 
 - name: restart cntlm
-  service:
+  ansible.builtin.service:
     name: cntlm
     state: restarted
