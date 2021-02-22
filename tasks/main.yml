@@ -44,13 +44,13 @@
 - name: manage apt details
   block:
     - name: download cntlm software (deb)
-      get_url:
+      ansible.builtin.get_url:
         url: "{{ cntlm_dpkg_repository }}"
         dest: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
         validate_certs: no
 
     - name: install cntlm software (apt)
-      apt:
+      ansible.builtin.apt:
         deb: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
         state: present
   when:
