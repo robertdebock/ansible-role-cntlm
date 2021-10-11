@@ -6,4 +6,6 @@
 
   tasks:
     - name: Try to use cntlm
-      shell: echo "some_string" | cntlm -H
+      ansible.builtin.shell:
+        cmd: echo "some_string" | cntlm -H
+      changed_when: no
