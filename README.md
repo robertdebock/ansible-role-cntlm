@@ -64,6 +64,9 @@ cntlm_listen: 3128
 # When you've got a password hash, you may fill it in here.
 # cntlm_passntlmv2: 1234567890abcdef
 
+# When using NTLM authentication (not NTLMv2), set to true:
+cntlm_auth_ntlm: false
+
 # What hosts to omit in the proxy.
 cntlm_noproxy: localhost
 
