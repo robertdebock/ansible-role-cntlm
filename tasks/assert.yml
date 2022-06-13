@@ -99,5 +99,5 @@
   ansible.builtin.assert:
     that:
       - cntlm_allows_include_local_ipv4 is defined
-      - cntlm_allows_include_local_ipv4 is bool
+      - cntlm_allows_include_local_ipv4 is boolean
     quiet: yes
