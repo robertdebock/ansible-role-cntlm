@@ -64,6 +64,9 @@ cntlm_listen: 3128
 # When you've got a password hash, you may fill it in here.
 # cntlm_passntlmv2: 1234567890abcdef
 
+# When using NTLM authentication (not NTLMv2), set to true:
+cntlm_auth_ntlm: false
+
 # What hosts to omit in the proxy.
 cntlm_noproxy: localhost
 
@@ -81,6 +84,9 @@ cntlm_denies:
 
 # If yes, access to CNTLM is possible from outside of the local host, subject to cntlm_allows and cntlm_denies:
 gateway_enabled: "no"
+
+# If "yes", include the default ansible_default_ipv4 IP in cntlm_allows ([inventory_hostname]['ansible_default_ipv4'])
+cntlm_allows_include_local_ipv4: "no"
 ```
 
 ## [Requirements](#requirements)
