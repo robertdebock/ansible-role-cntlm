@@ -14,7 +14,8 @@
 - name: include local IP in cntlm_allows
   set_fact:
     cntlm_allows: "{{ cntlm_allows + [ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] + '/32'] }}"
-  when: cntlm_allows_include_local_ipv4 == "yes"
+  when:
+    - cntlm_allows_include_local_ipv4 == "yes"
 
 - name: unpack cntlm software
   ansible.builtin.unarchive:
