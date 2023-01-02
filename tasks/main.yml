@@ -67,7 +67,7 @@
     name: robertdebock.service
   vars:
     service_list:
-      - name: Cntlm
+      - name: cntlm
         description: Start CNTLM
         start_command: /usr/sbin/cntlm -c /etc/cntlm.conf -f
         status_pattern: cntlm
