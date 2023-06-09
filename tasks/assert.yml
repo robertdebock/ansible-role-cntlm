@@ -5,6 +5,7 @@
     that:
       - cntlm_version is defined
       - cntlm_version is string
+      - cntlm_version is not none
     quiet: yes
 
 - name: assert | Test if cntlm_release is set correctly
@@ -21,6 +22,7 @@
     that:
       - cntlm_download_mirror is defined
       - cntlm_download_mirror is string
+      - cntlm_download_mirror is not none
     quiet: yes
 
 - name: assert | Test if cntlm_username is set correctly
@@ -28,6 +30,7 @@
     that:
       - cntlm_username is defined
       - cntlm_username is string
+      - cntlm_username is not none
     quiet: yes
 
 - name: assert | Test if cntlm_password is set correctly
@@ -35,6 +38,7 @@
     that:
       - cntlm_password is defined
       - cntlm_password is string
+      - cntlm_password is not none
     quiet: yes
 
 - name: assert | Test if cntlm_domain is set correctly
@@ -42,6 +46,7 @@
     that:
       - cntlm_domain is defined
       - cntlm_domain is string
+      - cntlm_domain is not none
     quiet: yes
 
 - name: assert | Test if cntlm_proxy is set correctly
@@ -49,6 +54,7 @@
     that:
       - cntlm_proxy is defined
       - cntlm_proxy is string
+      - cntlm_proxy is not none
     quiet: yes
 
 - name: assert | Test if cntlm_listen is set correctly
@@ -65,6 +71,7 @@
     that:
       - cntlm_noproxy is defined
       - cntlm_noproxy is string
+      - cntlm_noproxy is not none
     quiet: yes
 
 - name: assert | Test if cntlm_tmp is set correctly
@@ -72,6 +79,7 @@
     that:
       - cntlm_tmp is defined
       - cntlm_tmp is string
+      - cntlm_tmp is not none
     quiet: yes
 
 - name: assert | Test if cntlm_allows is set correctly
