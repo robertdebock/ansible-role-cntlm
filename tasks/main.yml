@@ -76,7 +76,7 @@
 
 - name: Generate hash
   ansible.builtin.shell:
-    cmd: "set -o pipefail ; {{ cntlm_hash_command }} | tee /etc/cntlm.hash"
+    cmd: "set -o pipefail && {{ cntlm_hash_command }} | tee /etc/cntlm.hash"
     creates: /etc/cntlm.hash
     executable: /bin/bash
   register: cntlm_generate_hash
