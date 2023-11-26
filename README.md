@@ -1,4 +1,4 @@
-# Ansible role [cntlm](#cntlm)
+# [Ansible role cntlm](#cntlm)
 
 Install and configure cntlm on your system.
 
