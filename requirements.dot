@@ -1,0 +1,15 @@
+digraph PhiloDilemma {
+  label = "Robert de Bock" ;
+  overlap=false
+  {
+    "cntlm" [fillcolor=yellow style=filled penwidth=3]
+    "robertdebock.bootstrap" [fillcolor=green style=filled]
+    "robertdebock.buildtools" [fillcolor=green style=filled]
+    "robertdebock.epel" [fillcolor=green style=filled]
+    "robertdebock.service" [fillcolor=green style=filled]
+  }
+  "cntlm" -> "robertdebock.bootstrap"
+  "cntlm" -> "robertdebock.buildtools"
+  "cntlm" -> "robertdebock.epel"
+  "cntlm" -> "robertdebock.service"
+}
