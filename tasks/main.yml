@@ -14,7 +14,7 @@
 
 - name: Include local IP in cntlm_allows
   ansible.builtin.set_fact:
-    cntlm_allows: "{{ cntlm_allows + [hostvars[inventory_hostname]['ansible_default_ipv4']['address'] + '/32'] }}"
+    cntlm_allows: "{{ cntlm_allows + [hostvars[inventory_hostname]['ansible_facts['default_ipv4']']['address'] + '/32'] }}"
   when:
     - cntlm_allows_include_local_ipv4
 
@@ -25,7 +25,7 @@
     remote_src: true
     mode: "0755"
   when:
-    - ansible_pkg_mgr not in [ "apt", "yum", "dnf", "dnf5" ]
+    - ansible_facts['pkg_mgr'] not in [ "apt", "yum", "dnf", "dnf5" ]
   notify:
     - Configure cntlm
     - Make cntlm
@@ -37,7 +37,7 @@
     state: present
     disable_gpg_check: true
   when:
-    - ansible_pkg_mgr in [ "yum" ]
+    - ansible_facts['pkg_mgr'] in [ "yum" ]
 
 - name: Install cntlm software (dnf)
   ansible.builtin.dnf:
@@ -46,11 +46,11 @@
     validate_certs: false
     disable_gpg_check: true
   when:
-    - ansible_pkg_mgr in [ "dnf", "dnf5" ]
+    - ansible_facts['pkg_mgr'] in [ "dnf", "dnf5" ]
 
 - name: Manage apt details
   when:
-    - ansible_pkg_mgr in [ "apt" ]
+    - ansible_facts['pkg_mgr'] in [ "apt" ]
   block:
     - name: Download cntlm software (deb)
       ansible.builtin.get_url:
