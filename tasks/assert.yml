@@ -13,7 +13,6 @@
     that:
       - cntlm_release is defined
       - cntlm_release is number
-      - cntlm_release
       - cntlm_release > 0
     quiet: true
 
