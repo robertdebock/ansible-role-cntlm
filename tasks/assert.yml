@@ -8,22 +8,6 @@
       - cntlm_version is not none
     quiet: true
 
-- name: assert | Test cntlm_release
-  ansible.builtin.assert:
-    that:
-      - cntlm_release is defined
-      - cntlm_release is number
-      - cntlm_release > 0
-    quiet: true
-
-- name: assert | Test cntlm_download_mirror
-  ansible.builtin.assert:
-    that:
-      - cntlm_download_mirror is defined
-      - cntlm_download_mirror is string
-      - cntlm_download_mirror is not none
-    quiet: true
-
 - name: assert | Test cntlm_username
   ansible.builtin.assert:
     that:

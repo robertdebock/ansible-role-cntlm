@@ -4,12 +4,6 @@
 # The version of CNTLM to install.
 cntlm_version: "0.92.3"
 
-# What release to install.
-cntlm_release: 1
-
-# Where to download CNTLM from.
-cntlm_download_mirror: netcologne.dl.sourceforge.net
-
 # CNTLM authenticate to the proxy, set a username, password and domain.
 cntlm_username: changeme
 cntlm_password: changeme

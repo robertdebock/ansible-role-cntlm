@@ -31,38 +31,13 @@
     - Make cntlm
     - Install cntlm
 
+# All supported distributions package cntlm (EL through EPEL), SourceForge mirrors come and go.
 - name: Install cntlm software
   ansible.builtin.package:
     name: cntlm
     state: present
-    disable_gpg_check: true
   when:
-    - ansible_facts['pkg_mgr'] in [ "yum" ]
-
-- name: Install cntlm software (dnf)
-  ansible.builtin.dnf:
-    name: "{{ cntlm_rpm_repository }}"
-    state: present
-    validate_certs: false
-    disable_gpg_check: true
-  when:
-    - ansible_facts['pkg_mgr'] in [ "dnf", "dnf5" ]
-
-- name: Manage apt details
-  when:
-    - ansible_facts['pkg_mgr'] in [ "apt" ]
-  block:
-    - name: Download cntlm software (deb)
-      ansible.builtin.get_url:
-        url: "{{ cntlm_dpkg_repository }}"
-        dest: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
-        mode: "0640"
-        validate_certs: false
-
-    - name: Install cntlm software (apt)
-      ansible.builtin.apt:
-        deb: "{{ cntlm_tmp }}/cntlm_{{ cntlm_version }}_amd64.deb"
-        state: present
+    - ansible_facts['pkg_mgr'] in [ "apt", "yum", "dnf", "dnf5" ]
 
 - name: Create cntlm service
   ansible.builtin.import_role:
