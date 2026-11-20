@@ -49,12 +49,6 @@ The default values for the variables are set in [`defaults/main.yml`](https://gi
 # The version of CNTLM to install.
 cntlm_version: "0.92.3"
 
-# What release to install.
-cntlm_release: 1
-
-# Where to download CNTLM from.
-cntlm_download_mirror: netcologne.dl.sourceforge.net
-
 # CNTLM authenticate to the proxy, set a username, password and domain.
 cntlm_username: changeme
 cntlm_password: changeme
@@ -123,11 +117,7 @@ This role has been tested on these [container images](https://hub.docker.com/u/r
 |[Fedora](https://hub.docker.com/r/robertdebock/fedora)|all|
 |[Ubuntu](https://hub.docker.com/r/robertdebock/ubuntu)|all|
 
-The minimum version of Ansible required is 2.12, tests have been done on:
-
-- The previous version.
-- The current version.
-- The development version.
+The minimum version of Ansible (ansible-core) required is 2.20, tests are done with the latest release of ansible-core.
 
 If you find issues, please register them on [GitHub](https://github.com/robertdebock/ansible-role-cntlm/issues).
 
